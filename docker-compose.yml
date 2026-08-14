@@ -3,11 +3,14 @@ services:
     build: ./playwright
     container_name: playwright
     restart: always
+    shm_size: "1gb"
+    pids_limit: 300
+    mem_limit: 2g
     ports:
       - "3000:3000"
     healthcheck:
       test: ["CMD", "node", "/healthcheck.js"]
-      interval: 15s
-      timeout: 10s
+      interval: 30s
+      timeout: 25s
       retries: 5
-      start_period: 15s
+      start_period: 60s
