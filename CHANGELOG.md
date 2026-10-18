@@ -6,6 +6,12 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-19
+
+### Changed
+- CI publishes the container image to GHCR on every tag: the server pulls a
+  ready image instead of building from source.
+
 ## [1.0.0] - 2026-10-19
 
 First release.
