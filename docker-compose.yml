@@ -1,6 +1,6 @@
 services:
   playwright:
-    build: ./playwright
+    build: .
     container_name: playwright
     restart: always
     shm_size: "1gb"
