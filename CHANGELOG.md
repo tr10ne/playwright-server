@@ -6,6 +6,12 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-10-19
+
+### Changed
+- Release workflow runs a syntax check before building the image and creates
+  the GitHub release from this changelog.
+
 ## [1.0.1] - 2026-10-19
 
 ### Changed
