@@ -13,8 +13,10 @@ if it were installed locally.
 - **The healthcheck actually drives the browser.** It opens a WebSocket, creates a
   context and a page, loads `about:blank` — a wedged browser fails the check instead
   of reporting "port is open".
-- **Self-healing.** After `HC_KILL_AFTER` consecutive failures (default 3) the
-  healthcheck sends SIGTERM to PID 1 and lets Docker restart the container.
+- **Self-healing is opt-in.** Set `HC_KILL_AFTER` to a positive number if you
+  want the healthcheck to send SIGTERM to PID 1 after that many consecutive
+  failures. It is disabled by default so a transient probe failure cannot kill
+  a working server.
 
 ## Quick start
 
@@ -36,7 +38,7 @@ await browser.close();
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `HC_KILL_AFTER` | `3` | consecutive healthcheck failures before the container restarts itself |
+| `HC_KILL_AFTER` | `0` | consecutive healthcheck failures before optional self-restart; `0` disables self-restart |
 
 ## Notes
 

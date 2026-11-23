@@ -6,6 +6,16 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-11-23
+
+### Fixed
+- Healthcheck no longer sends SIGTERM to PID 1 by default. Self-restart is now
+  opt-in via `HC_KILL_AFTER`; a transient probe failure cannot restart a working
+  server.
+
+### Changed
+- `HC_KILL_AFTER` now defaults to `0` (disabled).
+
 ## [1.0.2] - 2026-10-19
 
 ### Changed

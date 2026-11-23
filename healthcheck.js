@@ -2,7 +2,7 @@ const fs = require("fs");
 const { chromium } = require("playwright-core");
 
 const FAILS_FILE = "/tmp/hc_fails";
-const KILL_AFTER = parseInt(process.env.HC_KILL_AFTER || "3", 10);
+const KILL_AFTER = parseInt(process.env.HC_KILL_AFTER || "0", 10);
 
 function readFails() {
   try { return parseInt(fs.readFileSync(FAILS_FILE, "utf8"), 10) || 0; } catch { return 0; }
@@ -13,7 +13,7 @@ function fail(err) {
   try { fs.writeFileSync(FAILS_FILE, String(fails)); } catch {}
   console.error(`healthcheck FAILED (${fails}/${KILL_AFTER}): ${err.message}`);
 
-  if (fails >= KILL_AFTER) {
+  if (KILL_AFTER > 0 && fails >= KILL_AFTER) {
     console.error("Принудительно перезапускаю контейнер (SIGTERM PID 1)");
     try { fs.unlinkSync(FAILS_FILE); } catch {}
     try { process.kill(1, "SIGTERM"); } catch (e) { console.error(e.message); }
