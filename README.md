@@ -42,7 +42,7 @@ await browser.close();
 
 ## Notes
 
-- Playwright is pinned (`1.62`): the client must use a matching minor version.
+- Playwright is pinned (`1.65.1`): the client must use a matching minor version.
 - The server has **no authentication**. Keep port 3000 on a private network and put
   a proxy in front if external access is required.
 - `pids_limit: 300` and `mem_limit: 2g` keep a runaway page from taking down the

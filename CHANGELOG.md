@@ -6,6 +6,13 @@ Versioning: [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.4] - 2026-11-24
+
+### Fixed
+- Updated Playwright to 1.65.1 to address the `Assertion error` in
+  `_CRSession._onMessage` that caused the server process to exit on client
+  disconnects.
+
 ## [1.0.3] - 2026-11-23
 
 ### Fixed
